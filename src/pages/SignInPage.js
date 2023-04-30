@@ -30,19 +30,21 @@ const Signin = () => {
   };
 
   const responseFacebook = (response) => {
-    setLoading(true);
-    dispatch(setUserDetail(response));
+    if (response.status !== "unknown") {
+      setLoading(true);
+      dispatch(setUserDetail(response));
+    }
   };
 
   return (
-    <div className="login-wrapper flex"> 
+    <div className="login-wrapper flex">
       <div className="left-section text-center">
         <h1 className="text-cyan-500 uppercase font-bold text-5xl">Todo App</h1>
       </div>
-      <div className="right-section"> 
+      <div className="right-section">
         <p className="my-5 uppercase font-bold text-cyan-500 text-3xl">
           Sign In
-        </p> 
+        </p>
         <div>
           <FacebookLogin
             appId="1369384800301338"
